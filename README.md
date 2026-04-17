@@ -37,7 +37,7 @@ Hi! I'm Gian, a passionate aspiring web developer focused on building clean and 
 
 ## 📬 Contact
 
-* 📧 Email: [your-email@example.com](mailto:your-email@example.com)
+* 📧 Email: [your-email@example.com](mailto:lainag@sic.edu.ph)
 * 🌐 Facebook: https://facebook.com/yourprofile
 * 💻 GitHub: https://github.com/gianvrsx
 
