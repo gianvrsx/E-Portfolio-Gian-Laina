@@ -1,0 +1,637 @@
+/* =========================
+   RESET
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* =========================
+   BODY (ONLY ONCE)
+========================= */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    color: #e2e8f0;
+
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+}
+
+/* PAGE WRAPPER */
+.page-content {
+    flex: 1;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+nav {
+    background: rgba(15, 23, 42, 0.7);
+    backdrop-filter: blur(10px);
+    padding: 15px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    position: relative;
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: #00aaff;
+    bottom: -5px;
+    left: 0;
+    transition: 0.3s;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+/* ACTIVE NAV LINK */
+nav a.active {
+    color: #00aaff;
+}
+
+nav a.active::after {
+    width: 100%;
+}
+section {
+    scroll-margin-top: 80px;
+}
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px; /* prevents nav covering section titles */
+}
+/* =========================
+   HEADINGS
+========================= */
+h2 {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    color: #38bdf8;
+    letter-spacing: 1px;
+}
+
+/* =========================
+   SECTIONS (GLOBAL BOX STYLE)
+========================= */
+section {
+    width: 90%;
+    max-width: 1100px;
+    margin: 60px auto;
+    padding: 60px 20px;
+
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+
+    position: relative;
+    transition: 0.3s;
+}
+
+/* glow line */
+section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #00aaff, transparent);
+}
+
+/* =========================
+   HOME SECTION (FULL HERO)
+========================= */
+.home-section {
+    min-height: 100vh;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+
+    background: radial-gradient(circle at top, #1e293b, #020617);
+
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+/* =========================
+   PROFILE IMAGE
+========================= */
+.profile-image {
+    width: 220px;
+    border-radius: 50%;
+    border: 4px solid #00aaff;
+    box-shadow: 0 0 25px #00aaff;
+    transition: 0.4s;
+}
+
+.profile-image:hover {
+    transform: scale(1.05);
+}
+
+/* =========================
+   BUTTON
+========================= */
+.cta-button {
+    background: linear-gradient(45deg, #00aaff, #007BFF);
+    color: white;
+    border-radius: 30px;
+    padding: 12px 25px;
+    font-weight: bold;
+    transition: 0.3s;
+    box-shadow: 0 0 15px rgba(0,170,255,0.5);
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 25px rgba(0,170,255,0.8);
+}
+
+/* =========================
+   PROJECTS
+========================= */
+/* PROJECT SECTION GRID */
+#projects {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/* =========================
+   PROJECT BUTTON
+========================= */
+.project-details button {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background: #3b82f6;
+    color: white;
+    transition: 0.3s;
+}
+
+.project-details button:hover {
+    background: #2563eb;
+}
+
+/* =========================
+   MODAL BACKDROP (IMPROVED)
+========================= */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(6px);
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+    overflow-y: auto;
+}
+
+/* =========================
+   MODAL BOX (GLASS STYLE)
+========================= */
+.modal-content {
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(12px);
+
+    padding: 25px;
+    border-radius: 16px;
+
+    width: 100%;
+    max-width: 650px;
+
+    color: #e2e8f0;
+
+    position: relative;
+
+    animation: pop 0.25s ease;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+}
+
+/* OPEN ANIMATION */
+@keyframes pop {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* =========================
+   CLOSE BUTTON (BETTER UI)
+========================= */
+.close {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+
+    font-size: 28px;
+    cursor: pointer;
+
+    color: #cbd5f5;
+    transition: 0.2s;
+}
+
+.close:hover {
+    color: #ef4444;
+    transform: scale(1.2);
+}
+
+/* =========================
+   MODAL IMAGE INSIDE
+========================= */
+.modal-content img {
+    width: 100%;
+    border-radius: 12px;
+    margin-top: 15px;
+}
+
+/* =========================
+   RESPONSIVE MODAL
+========================= */
+@media (max-width: 600px) {
+    .modal-content {
+        padding: 18px;
+        border-radius: 12px;
+    }
+
+    .close {
+        font-size: 24px;
+    }
+}
+
+body.modal-open {
+    overflow: hidden;
+}
+
+/* PROJECT CONTAINER LAYOUT */
+#projects .project {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    width: 100%;
+    max-width: 800px;
+
+    padding: 20px;
+    margin: 15px 0;
+
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
+
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 15px;
+
+    transition: 0.3s;
+}
+
+/* HOVER EFFECT */
+#projects .project:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* IMAGE STYLE */
+#projects .project img {
+    width: 160px;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* TEXT AREA */
+.project-details {
+    text-align: left;
+}
+
+.project-details h3 {
+    color: #38bdf8;
+    margin-bottom: 8px;
+}
+
+.project-details a {
+    display: inline-block;
+    margin-top: 10px;
+    color: #00aaff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.project-details a:hover {
+    color: white;
+    transform: translateX(5px);
+}
+@media (max-width: 768px) {
+    #projects .project {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .project-details {
+        text-align: center;
+    }
+
+    #projects .project img {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+    }
+}
+
+/* =========================
+   SKILLS
+========================= */
+.skills-section ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+
+.skills-section li {
+    list-style: none;
+    padding: 10px 22px;
+    background: rgba(0,170,255,0.12);
+    border: 1px solid rgba(0,170,255,0.4);
+    color: #38bdf8;
+    border-radius: 30px;
+    transition: 0.3s;
+}
+
+.skills-section li:hover {
+    background: linear-gradient(45deg, #00aaff, #007BFF);
+    color: white;
+    transform: translateY(-5px) scale(1.08);
+}
+
+/* =========================
+   HOBBIES & INTERESTS
+========================= */
+.hobbies-section {
+    padding: 80px 20px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.03);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.hobbies-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: #e2e8f0;
+}
+
+.hobbies-section p {
+    max-width: 700px;
+    margin: 0 auto 30px auto;
+    color: #94a3b8;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Hobbies List Card Style */
+.hobbies-section ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.hobbies-section ul li {
+    background: linear-gradient(135deg, #1e293b, #0f172a);
+    padding: 18px;
+    border-radius: 12px;
+    color: #e2e8f0;
+    font-size: 1rem;
+    transition: 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Hover effect */
+.hobbies-section ul li:hover {
+    transform: translateY(-5px);
+    background: linear-gradient(135deg, #334155, #1e293b);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+}
+/* =========================
+   CONTACT
+========================= */
+.contact-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 15px;
+}
+.contact-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.contact-list a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    text-decoration: none;
+    color: #cbd5f5;
+    font-size: 16px;
+
+    transition: 0.3s;
+}
+
+.contact-list a:hover {
+    color: #38bdf8;
+    transform: translateX(5px);
+}
+
+.contact-list i {
+    font-size: 20px;
+}
+
+/* =========================
+   FOOTER (CLEAN + STABLE)
+========================= */
+footer {
+    background: linear-gradient(135deg, #020617, #0f172a);
+    color: #cbd5f5;
+    text-align: center;
+    padding: 20px 15px;
+
+    border-top: 1px solid rgba(255,255,255,0.1);
+    width: 100%;
+    position: relative;
+    margin-top: auto;
+}
+
+footer p {
+    font-size: 15px;
+}
+
+/* footer glow */
+footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #00aaff, transparent);
+}
+
+/* =========================
+   ANIMATION
+========================= */
+.reveal {
+    opacity: 0;
+    transform: translateY(80px);
+    transition: all 1s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =========================
+   TYPING
+========================= */
+#typing {
+  color: #00aaff;
+  font-weight: bold;
+  border-right: 2px solid #00aaff;
+  padding-right: 5px;
+  white-space: nowrap;
+  animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+  0% { border-color: #00aaff; }
+  50% { border-color: transparent; }
+  100% { border-color: #00aaff; }
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+
+    .home-section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .project {
+        margin: 10px 0;
+    }
+}
+/* BACKDROP */
+#projectModal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(6px);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+
+/* ACTIVE STATE */
+#projectModal.show {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* MODAL BOX (inside modalBody container) */
+#modalBody {
+  background: #0f172a;
+  color: #e2e8f0;
+
+  padding: 20px;
+  border-radius: 14px;
+  width: 90%;
+  max-width: 500px;
+
+  transform: translateY(40px) scale(0.95);
+  opacity: 0;
+
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.35s ease;
+}
+
+/* when modal opens */
+#projectModal.show #modalBody {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+
+/* prevent background scroll */
+body.modal-open {
+  overflow: hidden;
+}
