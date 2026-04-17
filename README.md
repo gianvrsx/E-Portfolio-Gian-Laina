@@ -31,7 +31,6 @@ E-Portfolio-Gian-Laina/
 │
 └── images/
 ```
-
 ## 📖 About Me
 
 Hi! I'm Gian, a passionate aspiring web developer focused on building clean and user-friendly websites.
