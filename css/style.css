@@ -243,6 +243,13 @@ section::before {
     transform: translateX(5px);
 }
 
+.project-details p {
+    color: #ffffff;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    padding: 2px 0;
+}
+
 /* SKILLS SECTION */
 .skills-section ul {
     display: flex;
