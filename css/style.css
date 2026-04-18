@@ -1,34 +1,55 @@
-/* =========================
-   RESET
-========================= */
+/* RESET & BASE */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* =========================
-   BODY (ONLY ONCE)
-========================= */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+}
+
 body {
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(135deg, #0f172a, #1e293b);
     color: #e2e8f0;
-
     min-height: 100vh;
-
     display: flex;
     flex-direction: column;
 }
 
-/* PAGE WRAPPER */
+body.modal-open {
+    overflow: hidden;
+}
+
+/* LAYOUT WRAPPERS */
 .page-content {
     flex: 1;
 }
 
-/* =========================
-   NAVBAR
-========================= */
+/* TYPOGRAPHY */
+h2 { 
+    font-size: 2.5rem; 
+    margin-bottom: 10px; 
+    color: #38bdf8; 
+    letter-spacing: 1px; 
+    font-weight: 600; 
+}
+
+#typing {
+  border-right: 2px solid #38bdf8;
+  padding-right: 5px;
+  animation: blink 0.7s step-end infinite;
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+/* NAVBAR */
 nav {
     background: rgba(15, 23, 42, 0.7);
     backdrop-filter: blur(10px);
@@ -69,7 +90,7 @@ nav a::after {
 nav a:hover::after {
     width: 100%;
 }
-/* ACTIVE NAV LINK */
+
 nav a.active {
     color: #00aaff;
 }
@@ -77,47 +98,24 @@ nav a.active {
 nav a.active::after {
     width: 100%;
 }
+
+/* SECTIONS (GLOBAL) */
 section {
     scroll-margin-top: 80px;
-}
-html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 80px; /* prevents nav covering section titles */
-}
-/* =========================
-   HEADINGS
-========================= */
-h2 {
-    font-size: 2.2rem;
-    margin-bottom: 20px;
-    color: #38bdf8;
-    letter-spacing: 1px;
-}
-
-/* =========================
-   SECTIONS (GLOBAL BOX STYLE)
-========================= */
-section {
     width: 90%;
     max-width: 1100px;
     margin: 60px auto;
     padding: 60px 20px;
-
     text-align: center;
-
     background: rgba(255, 255, 255, 0.03);
     backdrop-filter: blur(10px);
-
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 20px;
-
     box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-
     position: relative;
     transition: 0.3s;
 }
 
-/* glow line */
 section::before {
     content: "";
     position: absolute;
@@ -129,45 +127,23 @@ section::before {
     background: linear-gradient(90deg, transparent, #00aaff, transparent);
 }
 
-/* =========================
-   HOME SECTION (FULL HERO)
-========================= */
+/* HOME SECTION (HERO) */
 .home-section {
     min-height: 100vh;
     width: 100%;
     max-width: 100%;
     margin: 0;
-
     display: flex;
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
-
     background: radial-gradient(circle at top, #1e293b, #020617);
-
     border: none;
     border-radius: 0;
     box-shadow: none;
 }
 
-/* =========================
-   PROFILE IMAGE
-========================= */
-.profile-image {
-    width: 220px;
-    border-radius: 50%;
-    border: 4px solid #00aaff;
-    box-shadow: 0 0 25px #00aaff;
-    transition: 0.4s;
-}
-
-.profile-image:hover {
-    transform: scale(1.05);
-}
-
-/* =========================
-   BUTTON
-========================= */
+/* BUTTONS */
 .cta-button {
     background: linear-gradient(45deg, #00aaff, #007BFF);
     color: white;
@@ -183,18 +159,6 @@ section::before {
     box-shadow: 0 0 25px rgba(0,170,255,0.8);
 }
 
-/* =========================
-   PROJECTS
-========================= */
-/* PROJECT SECTION GRID */
-#projects {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-/* =========================
-   PROJECT BUTTON
-========================= */
 .project-details button {
     padding: 10px 18px;
     border: none;
@@ -209,136 +173,46 @@ section::before {
     background: #2563eb;
 }
 
-/* =========================
-   MODAL BACKDROP (IMPROVED)
-========================= */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 9999;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
+/*  PROFILE IMAGE */
+.profile-image {
+    width: 220px;
+    border-radius: 50%;
+    border: 4px solid #00aaff;
+    box-shadow: 0 0 25px #00aaff;
+    transition: 0.4s;
+}
 
-    background: rgba(0, 0, 0, 0.75);
-    backdrop-filter: blur(6px);
+.profile-image:hover {
+    transform: scale(1.05);
+}
 
-    justify-content: center;
+/* PROJECTS SECTION */
+#projects {
+    display: flex;
+    flex-direction: column;
     align-items: center;
-
-    padding: 20px;
-    overflow-y: auto;
 }
 
-/* =========================
-   MODAL BOX (GLASS STYLE)
-========================= */
-.modal-content {
-    background: rgba(15, 23, 42, 0.95);
-    backdrop-filter: blur(12px);
-
-    padding: 25px;
-    border-radius: 16px;
-
-    width: 100%;
-    max-width: 650px;
-
-    color: #e2e8f0;
-
-    position: relative;
-
-    animation: pop 0.25s ease;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.6);
-}
-
-/* OPEN ANIMATION */
-@keyframes pop {
-    from {
-        transform: scale(0.8);
-        opacity: 0;
-    }
-    to {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
-
-/* =========================
-   CLOSE BUTTON (BETTER UI)
-========================= */
-.close {
-    position: absolute;
-    top: 12px;
-    right: 15px;
-
-    font-size: 28px;
-    cursor: pointer;
-
-    color: #cbd5f5;
-    transition: 0.2s;
-}
-
-.close:hover {
-    color: #ef4444;
-    transform: scale(1.2);
-}
-
-/* =========================
-   MODAL IMAGE INSIDE
-========================= */
-.modal-content img {
-    width: 100%;
-    border-radius: 12px;
-    margin-top: 15px;
-}
-
-/* =========================
-   RESPONSIVE MODAL
-========================= */
-@media (max-width: 600px) {
-    .modal-content {
-        padding: 18px;
-        border-radius: 12px;
-    }
-
-    .close {
-        font-size: 24px;
-    }
-}
-
-body.modal-open {
-    overflow: hidden;
-}
-
-/* PROJECT CONTAINER LAYOUT */
 #projects .project {
     display: flex;
     align-items: center;
     gap: 20px;
-
     width: 100%;
     max-width: 800px;
-
     padding: 20px;
     margin: 15px 0;
-
     background: rgba(255,255,255,0.05);
     backdrop-filter: blur(10px);
-
     border: 1px solid rgba(255,255,255,0.1);
     border-radius: 15px;
-
     transition: 0.3s;
 }
 
-/* HOVER EFFECT */
 #projects .project:hover {
     transform: translateY(-8px);
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
-/* IMAGE STYLE */
 #projects .project img {
     width: 160px;
     height: 110px;
@@ -346,7 +220,6 @@ body.modal-open {
     border-radius: 10px;
 }
 
-/* TEXT AREA */
 .project-details {
     text-align: left;
 }
@@ -369,26 +242,8 @@ body.modal-open {
     color: white;
     transform: translateX(5px);
 }
-@media (max-width: 768px) {
-    #projects .project {
-        flex-direction: column;
-        text-align: center;
-    }
 
-    .project-details {
-        text-align: center;
-    }
-
-    #projects .project img {
-        width: 100%;
-        max-width: 300px;
-        height: auto;
-    }
-}
-
-/* =========================
-   SKILLS
-========================= */
+/* SKILLS SECTION */
 .skills-section ul {
     display: flex;
     flex-wrap: wrap;
@@ -412,9 +267,7 @@ body.modal-open {
     transform: translateY(-5px) scale(1.08);
 }
 
-/* =========================
-   HOBBIES & INTERESTS
-========================= */
+/* HOBBIES SECTION */
 .hobbies-section {
     padding: 80px 20px;
     text-align: center;
@@ -437,7 +290,6 @@ body.modal-open {
     line-height: 1.6;
 }
 
-/* Hobbies List Card Style */
 .hobbies-section ul {
     list-style: none;
     display: grid;
@@ -458,28 +310,25 @@ body.modal-open {
     border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* Hover effect */
 .hobbies-section ul li:hover {
     transform: translateY(-5px);
     background: linear-gradient(135deg, #334155, #1e293b);
     box-shadow: 0 10px 20px rgba(0,0,0,0.4);
 }
-/* =========================
-   CONTACT
-========================= */
+
+/* CONTACT SECTION */
 .contact-section {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
     gap: 15px;
 }
+
 .contact-list {
     list-style: none;
     padding: 0;
     margin-top: 10px;
-
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -489,11 +338,9 @@ body.modal-open {
     display: flex;
     align-items: center;
     gap: 10px;
-
     text-decoration: none;
     color: #cbd5f5;
     font-size: 16px;
-
     transition: 0.3s;
 }
 
@@ -506,15 +353,12 @@ body.modal-open {
     font-size: 20px;
 }
 
-/* =========================
-   FOOTER (CLEAN + STABLE)
-========================= */
+/* FOOTER */
 footer {
     background: linear-gradient(135deg, #020617, #0f172a);
     color: #cbd5f5;
     text-align: center;
     padding: 20px 15px;
-
     border-top: 1px solid rgba(255,255,255,0.1);
     width: 100%;
     position: relative;
@@ -525,7 +369,6 @@ footer p {
     font-size: 15px;
 }
 
-/* footer glow */
 footer::before {
     content: "";
     position: absolute;
@@ -537,9 +380,97 @@ footer::before {
     background: linear-gradient(90deg, transparent, #00aaff, transparent);
 }
 
-/* =========================
-   ANIMATION
-========================= */
+/* MODALS */
+#projectModal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(6px);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: 0.3s ease;
+    overflow: hidden; /* prevents sideways scroll */
+}
+
+.modal-content {
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(12px);
+    padding: 25px;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 650px;
+    color: #e2e8f0;
+    position: relative;
+    animation: pop 0.25s ease;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+}
+
+.modal-content {
+    width: 90%;
+    max-width: 600px;
+
+    max-height: 90vh;   /* prevents it from going too tall */
+    overflow-y: auto;   /* scroll inside instead */
+
+    margin: auto;       /* center fix */
+}
+
+.modal-content img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.close {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #cbd5f5;
+    transition: 0.2s;
+}
+
+.close:hover {
+    color: #ef4444;
+    transform: scale(1.2);
+}
+
+#projectModal.show {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+#projectModal.show .modal-content {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+}
+
+/* ANIMATIONS */
+@keyframes blink {
+    0% { border-color: #00aaff; }
+    50% { border-color: transparent; }
+    100% { border-color: #00aaff; }
+}
+
+@keyframes pop {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
 .reveal {
     opacity: 0;
     transform: translateY(80px);
@@ -551,87 +482,62 @@ footer::before {
     transform: translateY(0);
 }
 
-/* =========================
-   TYPING
-========================= */
-#typing {
-  color: #00aaff;
-  font-weight: bold;
-  border-right: 2px solid #00aaff;
-  padding-right: 5px;
-  white-space: nowrap;
-  animation: blink 0.7s infinite;
+/* RESPONSIVE DESIGN */
+@media (max-width: 600px) {
+    .modal-content {
+        width: 95%;
+        max-height: 85vh;
+    }
 }
-
-@keyframes blink {
-  0% { border-color: #00aaff; }
-  50% { border-color: transparent; }
-  100% { border-color: #00aaff; }
-}
-
-/* =========================
-   RESPONSIVE
-========================= */
-@media (max-width: 768px) {
-
-    .home-section {
+    #projects .project {
         flex-direction: column;
         text-align: center;
+        margin: 10px 0;
+    }
+
+    .project-details {
+        text-align: center;
+    }
+
+    #projects .project img {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
     }
 
     .project {
         margin: 10px 0;
     }
-}
-/* BACKDROP */
-#projectModal {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.6);
-  backdrop-filter: blur(6px);
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
 
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
+@media (max-width: 600px) {
+    .modal-content {
+        padding: 18px;
+        border-radius: 12px;
+    }
 
-  transition: opacity 0.35s ease, visibility 0.35s ease;
+    .close {
+        font-size: 24px;
+    }
 }
 
-/* ACTIVE STATE */
-#projectModal.show {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
+/* Make project clickable */
+.project {
+    cursor: pointer;
 }
 
-/* MODAL BOX (inside modalBody container) */
-#modalBody {
-  background: #0f172a;
-  color: #e2e8f0;
-
-  padding: 20px;
-  border-radius: 14px;
-  width: 90%;
-  max-width: 500px;
-
-  transform: translateY(40px) scale(0.95);
-  opacity: 0;
-
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-              opacity 0.35s ease;
+/* Exit button */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #cbd5f5;
+    transition: 0.3s;
 }
 
-/* when modal opens */
-#projectModal.show #modalBody {
-  transform: translateY(0) scale(1);
-  opacity: 1;
-}
-
-/* prevent background scroll */
-body.modal-open {
-  overflow: hidden;
+.close-btn:hover {
+    color: #ef4444;
+    transform: scale(1.2);
 }
