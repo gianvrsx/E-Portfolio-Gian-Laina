@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- META -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- TITLE -->
+    <title>Gian Laina | E-Portfolio</title>
+
+    <!-- STYLES -->
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+<div class="page-content">
+
+    <!-- NAVIGATION -->
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- HOME -->
+    <section id="home" class="home-section">
+        <div class="content">
+            <h1>Hi, I'm Gian</h1>
+            <h2>I am <span id="typing"></span></h2>
+
+            <p>
+                A First-Year IT Student at 
+                <span class="highlight">San Isidro College</span>, 
+                learning Web Development and Graphics Design.
+            </p>
+        </div>
+
+        <img src="images/Gian.png" alt="Gian L. Laina" class="profile-image">
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="about-section">
+        <h2>About Me</h2>
+        <p>
+            My name is Gian L. Laina. I am a passionate IT student at 
+            San Isidro College, interested in Web Development, 
+            Graphics Design, and Networking.
+        </p>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+        <h2>My Projects</h2>
+
+        <div class="project">
+            <img src="images/Event-Webpage.png" alt="Project 1">
+            <div class="project-details">
+                <h3>Project 1</h3>
+                <p>Event webpage design using HTML & CSS.</p>
+                <button onclick="openModal('project1')">View</button>
+            </div>
+        </div>
+
+        <div class="project">
+            <img src="images/Project.png" alt="Project 2">
+            <div class="project-details">
+                <h3>Project 2</h3>
+                <p>Basic student information system project.</p>
+                <button onclick="openModal('project2')">View</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="skills-section">
+        <h2>Skills</h2>
+        <ul>
+            <li>Basic Computer Skills</li>
+            <li>Programming Fundamentals</li>
+            <li>Cybersecurity Basics</li>
+            <li>Networking Knowledge</li>
+            <li>Graphics Design</li>
+            <li>Basic Editing</li>
+        </ul>
+    </section>
+
+    <!-- HOBBIES -->
+    <section id="hobbies" class="hobbies-section">
+        <h2>Hobbies & Interests</h2>
+        <p>
+            Outside of academics, I enjoy exploring activities that help me grow creatively and technically.
+        </p>
+
+        <ul>
+            <li>💻 Exploring Web Development</li>
+            <li>🎮 Playing Online Games</li>
+            <li>🎨 Graphics & Digital Design</li>
+            <li>🎵 Listening to Music</li>
+            <li>📷 Photography & Editing</li>
+            <li>🔧 Learning New Technologies</li>
+        </ul>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact-section">
+        <h2>Contact & Online Presence</h2>
+        <ul class="contact-list">
+
+            <li>
+                <a href="https://www.facebook.com/gianversx" target="_blank">
+                    <i class="fab fa-facebook"></i> Facebook
+                </a>
+            </li>
+
+            <li>
+                <a href="mailto:lainag@sic.edu.ph">
+                    <i class="fas fa-envelope"></i> Email
+                </a>
+            </li>
+
+            <li>
+                <a href="https://github.com/gianvrsx" target="_blank">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+            </li>
+
+        </ul>
+    </section>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <p>&copy; 2026 Gian L. Laina | All Rights Reserved</p>
+
+    <div class="footer-icons">
+        <a href="https://facebook.com" target="_blank">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+
+        <a href="mailto:lainag@sic.edu.ph">
+            <i class="fas fa-envelope"></i>
+        </a>
+
+        <a href="https://github.com" target="_blank">
+            <i class="fab fa-github"></i>
+        </a>
+    </div>
+</footer>
+
+<!-- MODAL -->
+<div id="projectModal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <div id="modal-body"></div>
+    </div>
+</div>
+
+<!-- SCRIPTS -->
+<script src="./javascript/script.js"></script>
+
+</body>
+</html>
