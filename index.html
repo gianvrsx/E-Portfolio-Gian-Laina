@@ -2,27 +2,23 @@
 <html lang="en">
 
 <head>
+    <!-- META -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- TITLE -->
     <title>My E-Portfolio</title>
+
+    <!-- STYLES -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
 <body>
-<div id="projectModal" class="modal">
-    <div class="modal-content">
 
-        <span class="close" onclick="closeModal()">&times;</span>
-
-        <div id="modalBody"></div>
-
-    </div>
-</div>
-</div>
 <div class="page-content">
 
-    <!-- NAV -->
+    <!-- NAVIGATION -->
     <nav>
         <ul>
             <li><a href="#home">Home</a></li>
@@ -38,7 +34,12 @@
         <div class="content">
             <h1>Hi, I'm Gian</h1>
             <h2>I am <span id="typing"></span></h2>
-            <p>A First-Year IT Student at <span class="highlight">San Isidro College</span>, learning Web Development and Graphics Design.</p>
+
+            <p>
+                A First-Year IT Student at 
+                <span class="highlight">San Isidro College</span>, 
+                learning Web Development and Graphics Design.
+            </p>
         </div>
 
         <img src="images/Gian.png" alt="Gian L. Laina" class="profile-image">
@@ -48,33 +49,34 @@
     <section id="about" class="about-section">
         <h2>About Me</h2>
         <p>
-            My name is Gian L. Laina. I am a passionate IT student at San Isidro College,
-            interested in Web Development, Graphics Design, and Networking.
+            My name is Gian L. Laina. I am a passionate IT student at 
+            San Isidro College, interested in Web Development, 
+            Graphics Design, and Networking.
         </p>
     </section>
 
     <!-- PROJECTS -->
     <section id="projects">
-    <h2>My Projects</h2>
+        <h2>My Projects</h2>
 
-    <div class="project">
-        <img src="images/Event-Webpage.png" alt="Project 1">
-        <div class="project-details">
-            <h3>Project 1</h3>
-            <p>Event webpage design using HTML & CSS.</p>
-            <button onclick="openModal('project1')">View</button>
+        <div class="project">
+            <img src="images/Event-Webpage.png" alt="Project 1">
+            <div class="project-details">
+                <h3>Project 1</h3>
+                <p>Event webpage design using HTML & CSS.</p>
+                <button onclick="openModal('project1')">View</button>
+            </div>
         </div>
-    </div>
 
-    <div class="project">
-        <img src="images/Project.png" alt="Project 2">
-        <div class="project-details">
-            <h3>Project 2</h3>
-            <p>Basic student information system project.</p>
-            <button onclick="openModal('project2')">View</button>
+        <div class="project">
+            <img src="images/Project.png" alt="Project 2">
+            <div class="project-details">
+                <h3>Project 2</h3>
+                <p>Basic student information system project.</p>
+                <button onclick="openModal('project2')">View</button>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- SKILLS -->
     <section id="skills" class="skills-section">
@@ -88,11 +90,12 @@
             <li>Basic Editing</li>
         </ul>
     </section>
-    <!-- HOBBIES & INTERESTS -->
+
+    <!-- HOBBIES -->
     <section id="hobbies" class="hobbies-section">
         <h2>Hobbies & Interests</h2>
         <p>
-            Outside of academics, I enjoy exploring different activities that help me grow creatively and technically.
+            Outside of academics, I enjoy exploring activities that help me grow creatively and technically.
         </p>
 
         <ul>
@@ -109,6 +112,7 @@
     <section id="contact" class="contact-section">
         <h2>Contact & Online Presence</h2>
         <ul class="contact-list">
+
             <li>
                 <a href="https://www.facebook.com/gianversx" target="_blank">
                     <i class="fab fa-facebook"></i> Facebook
@@ -126,22 +130,41 @@
                     <i class="fab fa-github"></i> GitHub
                 </a>
             </li>
+
         </ul>
     </section>
+
 </div>
 
-<!-- FOOTER (CLEAN) -->
+<!-- FOOTER -->
 <footer>
     <p>&copy; 2026 Gian L. Laina | All Rights Reserved</p>
 
     <div class="footer-icons">
-        <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
-        <a href="mailto:lainag@sic.edu.ph"><i class="fas fa-envelope"></i></a>
-        <a href="https://github.com" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://facebook.com" target="_blank">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+
+        <a href="mailto:lainag@sic.edu.ph">
+            <i class="fas fa-envelope"></i>
+        </a>
+
+        <a href="https://github.com" target="_blank">
+            <i class="fab fa-github"></i>
+        </a>
     </div>
 </footer>
 
-<script src="/js/script.js"></script>
+<!-- MODAL -->
+<div id="projectModal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <div id="modal-body"></div>
+    </div>
+</div>
+
+<!-- SCRIPTS -->
+<script src="js/script.js"></script>
 
 </body>
 </html>
